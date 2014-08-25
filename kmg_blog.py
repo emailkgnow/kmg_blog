@@ -1,7 +1,8 @@
 instructions = '''
-From lecture build a Blor where:
+FROM LECTURE:
+Build a Blog where:
 front page lists all entries (or at least last 10 entries)
-it has a form page to submit new entries (must check for errors to make sure a title and body are present)
+it has a seperate form page to submit new entries via title and body (must check for errors to make sure a title and body are present)
 redirects to a permalink page for entries if entry is successful
 
 
@@ -39,30 +40,19 @@ form='''<!DOCTYPE html>
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
+    <title>Khalid's Blog</title>
 </head>
 <body>
-<form method="post"><h3>
-
-    <label><b>Username</b></label>
-                 <input type="text" name="username" value={username}>
-                    <label style="color:red">{username_feedback}</label><br>
-
-    <label><b>Password</b></label>
-                 <input type="password" name="password" value={password}>
-                    <label style="color:red">{password_feedback}</label><br>
-
-    <label><b>Verify</b></label>
-                 <input type="password" name="verify" value={verify}>
-                    <label style="color:red">{verify_feedback}</label><br>
-
-    <label><b>Email</b></label>
-                 <input type="text" name="email" value={email}>
-                    <label style="color:red" >{email_feedback}</label><br><br></h3>
-    <input type="submit">
-
-        </form>
-</body>
-</html>'''
+<form method="post">
+    <h1 style='color:green'>Welcome to Khalid's Blog</h1>
+    <br>
+    <textarea name="title"
+                style="height: 25px; width: 400px;">{title}</textarea>
+ <br><br>   <textarea name="text"
+                style="height: 100px; width: 400px;">{entry}</textarea>
+   <br><br><br> <input type="submit">
+    
+ </form>
+"""
 
 
