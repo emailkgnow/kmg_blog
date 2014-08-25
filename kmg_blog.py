@@ -1,4 +1,9 @@
 instructions = '''
+From lecture build a Blor where:
+front page lists all entries (or at least last 10 entries)
+it has a form page to submit new entries (must check for errors to make sure a title and body are present)
+redirects to a permalink page for entries if entry is successful
+
 
 ORIGINAL INSTRUCTIONS:
 In order to be graded correctly for this homework, there are a few things to keep in mind.
