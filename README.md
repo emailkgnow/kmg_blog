@@ -1,3 +1,3 @@
 kmg_blog
 ========
-This is the git repo for my blog. I hope it turns out nice. if it does I might just move my entire blog over to here!
+This is the git repo for my blog. I will move my blog to this app if it turns out ok.. :).
