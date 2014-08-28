@@ -1,9 +1,9 @@
 instructions = '''
 FROM LECTURE:
 Build a Blog where:
-front page lists all entries (or at least last 10 entries)
-it has a seperate form page to submit new entries via title and body (must check for errors to make sure a title and body are present)
-redirects to a permalink page for entries if entry is successful
+--front page lists all entries (or at least last 10 entries)
+--it has a seperate form page to submit new entries via title and body (must check for errors to make sure a title and body are present)
+--redirects to a permalink page for entries if entry is successful
 
 
 ORIGINAL INSTRUCTIONS:
@@ -36,7 +36,7 @@ import webapp2
 import cgi
 import re
 
-form='''<!DOCTYPE html>
+form_entry='''<!DOCTYPE html>
 <html>
 <head lang="en">
     <meta charset="UTF-8">
@@ -54,5 +54,57 @@ form='''<!DOCTYPE html>
     
  </form>
 """
+
+form_main='''<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Khalid's Blog</title>
+</head>
+<body>
+<form method="post">
+    <h1 style='color:green'>Welcome to Khalid's Blog</h1>
+    <br>
+    <textarea name="title"
+                style="height: 25px; width: 400px;">{title}</textarea>
+ <br><br>   <textarea name="text"
+                style="height: 100px; width: 400px;">{entry}</textarea>
+   <br><br><br> <input type="submit">
+    
+ </form>
+"""
+
+form_perma= '''<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Khalid's Blog</title>
+</head>
+<body>
+<form method="post">
+    <h1 style='color:green'>Welcome to Khalid's Blog</h1>
+    <br>
+    <textarea name="title"
+                style="height: 25px; width: 400px;">{title}</textarea>
+ <br><br>   <textarea name="text"
+                style="height: 100px; width: 400px;">{entry}</textarea>
+   <br><br><br> <input type="submit">
+    
+ </form>
+"""
+
+class MainHandler(webapp2.RequestHandler):
+
+    def get(self):
+        self.response.out.write(form.format(my_encoded_input=""))
+
+
+    def post(self):
+        user_input=self.request.get("text")
+        new_encoded_input=mycodec(user_input)
+        self.response.out.write(form.format(my_encoded_input= escape_html(new_encoded_input)))
+
+
+
 
 
